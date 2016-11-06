@@ -86,6 +86,20 @@ public class ServiceMain extends ModelMain {
 	}
 
 	/**
+	 * Setter
+	 */
+	public void setIsInProduction(boolean bool){
+		isInProduction=bool;
+	}
+	
+	/**
+	 * Getter
+	 */
+	public boolean getIsInProduction(){
+		return isInProduction;
+	}	
+	
+	/**
 	 *
 	 */
 	public void startUp(boolean inProduction, String rootDir) throws Exception {
