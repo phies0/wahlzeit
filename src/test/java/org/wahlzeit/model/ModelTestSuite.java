@@ -7,7 +7,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({
     AccessRightsTest.class,
-    CoordinateTest.class,
+    CartesianCoordinateTest.class,
     FlagReasonTest.class,
     GenderTest.class,
     GuestTest.class,

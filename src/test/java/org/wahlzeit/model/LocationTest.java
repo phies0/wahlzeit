@@ -13,13 +13,11 @@ public class LocationTest {
 	@Test
 	public void testConstructor() {
 
-		Coordinate coordinate= new Coordinate(0,180);
+		SphericCoordinate coordinate= new SphericCoordinate(0,13,4);
 		Location location= new Location(coordinate);
 
 		// Checks constructor and get-Method
-		assertEquals(coordinate.getLatitude(), location.getCoordinate().getLatitude(),0);
-		assertEquals(coordinate.getLongitude(), location.getCoordinate().getLongitude(),0);
-
+		assertEquals(coordinate, location.getCoordinate());
 	}
 
 
