@@ -38,14 +38,5 @@ public class CartesianCoordinateTest {
 		CartesianCoordinate c2= new CartesianCoordinate(3,45,54);
 		assertEquals(67.65352910233139,c1.getDistance(c2),0);
 	}
-	/**
-	 *testing getSpheric
-	 */
-	@Test
-	public void testChangeIntoSpheric(){
-		CartesianCoordinate c= new CartesianCoordinate(12,42,39);
-		SphericCoordinate sc=c.getSpheric();
-		assertEquals("Latitude= 44.56455991031439, Longitude= 1.560322035062746, Radius= 2.669616484968866",sc.printSpheric());
-	}
 
 }

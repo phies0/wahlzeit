@@ -9,7 +9,9 @@ import com.googlecode.objectify.annotation.Serialize;
 
 @Serialize
 public interface Coordinate{
-	
+
+	//CartesianCoordinate getCartesianCoordinate();
 	double getDistance(Coordinate coordinate);
+	boolean isEqual(Coordinate other);
 
 }

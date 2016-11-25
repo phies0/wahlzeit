@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class SphericCoordinateTest {
 	/**
-	 *testing constructor
+	 *testing constructor and getter
 	 */
 	@Test
 	public void testConstructor() {
