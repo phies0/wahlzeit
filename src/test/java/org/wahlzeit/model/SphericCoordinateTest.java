@@ -28,14 +28,14 @@ public class SphericCoordinateTest {
 		SphericCoordinate c2= new SphericCoordinate(0,18,SphericCoordinate.EARTH_RAD_IN_KM);
 		assertEquals(0,c1.getDistance(c2),0);
 	}
-	/**
+	/*
 	 *
 	 */
 	@Test
 	public void getDistanceBetweenTwoDifferentCos() {
 		SphericCoordinate c1= new SphericCoordinate(67,25,SphericCoordinate.EARTH_RAD_IN_KM);
-		SphericCoordinate c2= new SphericCoordinate(3,-45,SphericCoordinate.EARTH_RAD_IN_KM);
-		assertEquals(8843.9181835388,c1.getDistance(c2),0);
+		SphericCoordinate c2= new SphericCoordinate(3,30,SphericCoordinate.EARTH_RAD_IN_KM);
+		assertEquals(7823,c1.getDistance(c2),1);
 	}
 	/**
 	 *testing getCartesian
@@ -46,4 +46,19 @@ public class SphericCoordinateTest {
 		CartesianCoordinate sc=c.getCartesian();
 		assertEquals("x= 984.373635581395, y= 886.3340025776562, z= 1324.6053821999446",sc.printCartesian());
 	}
+	/**
+	 *testing isEqual()
+	 */
+	@Test
+	public void testIsEqual() {
+		SphericCoordinate c1= new SphericCoordinate(0,18,SphericCoordinate.EARTH_RAD_IN_KM);
+		SphericCoordinate c2= new SphericCoordinate(0,18,SphericCoordinate.EARTH_RAD_IN_KM);
+		assertEquals(true,c1.isEqual(c2));
+	}
+	@Test
+	public void testIsEqualwithTwoDifferentCoordinates() {
+		SphericCoordinate c1= new SphericCoordinate(0,18,SphericCoordinate.EARTH_RAD_IN_KM);
+		SphericCoordinate c2= new SphericCoordinate(90,18,SphericCoordinate.EARTH_RAD_IN_KM);
+		assertEquals(false,c1.isEqual(c2));
+	}	
 }

@@ -29,7 +29,7 @@ public class CartesianCoordinateTest {
 		CartesianCoordinate c2= new CartesianCoordinate(0,18,7);
 		assertEquals(0,c1.getDistance(c2),0);
 	}
-	/**
+	/*
 	 *
 	 */
 	@Test
@@ -37,6 +37,21 @@ public class CartesianCoordinateTest {
 		CartesianCoordinate c1= new CartesianCoordinate(67,25,45);
 		CartesianCoordinate c2= new CartesianCoordinate(3,45,54);
 		assertEquals(67.65352910233139,c1.getDistance(c2),0);
+	}
+	/**
+	 *testing isEqual()
+	 */
+	@Test
+	public void testIsEqual() {
+		CartesianCoordinate c1= new CartesianCoordinate(0,18,7);
+		CartesianCoordinate c2= new CartesianCoordinate(0,18,7);
+		assertEquals(true,c1.isEqual(c2));
+	}
+	@Test
+	public void testIsEqualwithTwoDifferentCoordinates() {
+		CartesianCoordinate c1= new CartesianCoordinate(0,18,7);
+		CartesianCoordinate c2= new CartesianCoordinate(90,30,7);
+		assertEquals(false,c1.isEqual(c2));
 	}
 
 }
