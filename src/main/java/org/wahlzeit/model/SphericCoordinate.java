@@ -20,38 +20,52 @@ public class SphericCoordinate extends AbstractCoordinate{
 		this.latitude=latitude;
 		this.longitude=longitude;
 		this.radius=radius;
+		assertClassInvariants();
 	}
 	/*
 	 * Getter
 	 */
 	public double getLatitude(){
+		assertClassInvariants();
 		return this.latitude;
 	}
 	public double getLongitude(){
+		assertClassInvariants();
 		return this.longitude;
 	}
 	public double getRadius(){
+		assertClassInvariants();
 		return this.radius;
 	}
 	/*
 	 * Methods
 	 */
-	@Override
-	//public double getDistance(Coordinate other) {
-		//return getDistance((SphericCoordinate) other);
-	//}
-	/*public double getDistance(SphericCoordinate sphericcoordinate) {
-		/* https://en.wikipedia.org/wiki/Great-circle_distance */
-		//double deltalatitude=Math.abs(Math.toRadians(this.latitude)-Math.toRadians(sphericcoordinate.latitude));
-		//double deltalongitude=Math.abs(Math.toRadians(this.longitude)-Math.toRadians(sphericcoordinate.longitude));
-		//double deltasigma=Math.acos(Math.sin(Math.toRadians(this.latitude))*Math.sin(Math.toRadians(sphericcoordinate.latitude))+Math.cos(Math.toRadians(this.latitude))*Math.cos(Math.toRadians(sphericcoordinate.latitude))*Math.cos(deltalongitude));
-		//return EARTH_RAD_IN_KM*deltasigma;
-	//}
 	public CartesianCoordinate getCartesian(){
 		//https://de.wikipedia.org/wiki/Kugelkoordinaten
-		return new CartesianCoordinate(getRadius()*Math.sin(Math.toRadians(getLatitude()))*Math.cos(Math.toRadians(getLongitude())),radius*Math.sin(Math.toRadians(getLatitude()))*Math.sin(Math.toRadians(getLongitude())),radius*Math.sin(Math.toRadians(getLatitude())));
+		assertClassInvariants();
+		double x=getRadius()*Math.sin(Math.toRadians(getLatitude()))*Math.cos(Math.toRadians(getLongitude()));
+		double y=getRadius()*Math.sin(Math.toRadians(getLatitude()))*Math.sin(Math.toRadians(getLongitude()));
+		double z=getRadius()*Math.sin(Math.toRadians(getLatitude()));
+		CartesianCoordinate c=new CartesianCoordinate(x,y,z);
+		
+		/*Postconditions*/
+		assert c.getX()>=0:"Post: The Coordinate has an invalid x value";
+		assert c.getY()>=0:"Post: The Coordinate has an invalid y value";
+		assert c.getZ()>=0:"Post: The Coordinate has an invalid z value";
+		
+		assertClassInvariants();
+		return c;
 	}
 	public String printSpheric(){
+		assertClassInvariants();
 		return "Latitude= " + this.latitude + ", Longitude= " + this.longitude+ ", Radius= " + this.radius;
+	}
+	@Override
+	protected void assertClassInvariants(){
+		assert longitude>=-180:"Invalid longitude!";
+		assert longitude<=180:"Invalid longitude!";
+		assert latitude>=-90:"Invalid latitude!";
+		assert latitude<=90:"Invalid latitude!";
+		assert radius>=0:"Invalid radius!";
 	}	
 }
