@@ -27,15 +27,12 @@ public class CartesianCoordinate extends AbstractCoordinate{
 	 * Getter
 	 */
 	public double getX(){
-		assertClassInvariants();
 		return this.x;
 	}
 	public double getY(){
-		assertClassInvariants();
 		return this.y;
 	}
 	public double getZ(){
-		assertClassInvariants();
 		return this.z;
 	}
 	/*
@@ -46,13 +43,6 @@ public class CartesianCoordinate extends AbstractCoordinate{
 	}
 	@Override
 	public CartesianCoordinate getCartesian() {
-		assertClassInvariants();
 		return this;
-	}
-	@Override
-	protected void assertClassInvariants(){
-		assert x>=0:"The value of x is invalid!";
-		assert y>=0:"The value of y is invalid!";
-		assert y>=0:"The value of z is invalid!";
 	}
 }

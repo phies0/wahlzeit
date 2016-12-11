@@ -21,7 +21,15 @@ public class Location{
 	 */
 	
 	public Location(Coordinate coordinate){
+		assertNotNull(coordinate);
 		this.coordinate=coordinate;
+	}
+
+	private void assertNotNull(Coordinate other) {
+		if(other==null){
+			throw new NullPointerException("Give Coordinate should not be null!");
+		}
+		
 	}
 
 	/**
