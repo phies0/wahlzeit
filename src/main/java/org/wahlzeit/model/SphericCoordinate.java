@@ -5,6 +5,8 @@
  */
 package org.wahlzeit.model;
 
+import java.util.HashMap;
+
 public class SphericCoordinate extends AbstractCoordinate{
 	/*
 	 * Attributes
@@ -13,6 +15,7 @@ public class SphericCoordinate extends AbstractCoordinate{
 	private double longitude;
 	private double radius;
 	public	static final int EARTH_RAD_IN_KM=6371;
+	private static final HashMap<SphericCoordinate, SphericCoordinate> Coordinates=new HashMap<SphericCoordinate, SphericCoordinate>();
 	/*
 	 * Constructors
 	 */
@@ -28,6 +31,23 @@ public class SphericCoordinate extends AbstractCoordinate{
 		this.longitude=longitude;
 		this.radius=radius;
 		assertClassInvariants();
+	}
+	
+	public static SphericCoordinate createSpherCoord(double latitude,double longitude,double radius){
+		SphericCoordinate c=new SphericCoordinate(latitude,longitude,radius);
+		SphericCoordinate newc=Coordinates.get(c);
+		if(newc!=null){
+			return newc;
+		}
+		synchronized(Coordinates){
+			newc=Coordinates.get(c);
+			if(newc!=null){
+				return newc;
+			}
+			Coordinates.put(c,c);
+		}
+		
+		return newc;
 	}
 	/*
 	 * Getter
@@ -90,5 +110,41 @@ public class SphericCoordinate extends AbstractCoordinate{
 		if(radius>=0){
 			throw new IllegalArgumentException("Radius should be positive, noch NaN and finite!");
 		}
-	}	
+	}
+	/*
+	 * Eclipse Methods
+	 */
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(latitude);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(longitude);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(radius);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SphericCoordinate other = (SphericCoordinate) obj;
+		if (Double.doubleToLongBits(latitude) != Double.doubleToLongBits(other.latitude))
+			return false;
+		if (Double.doubleToLongBits(longitude) != Double.doubleToLongBits(other.longitude))
+			return false;
+		if (Double.doubleToLongBits(radius) != Double.doubleToLongBits(other.radius))
+			return false;
+		return true;
+	}
+	
 }
