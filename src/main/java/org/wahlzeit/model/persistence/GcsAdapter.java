@@ -41,6 +41,10 @@ import java.nio.ByteBuffer;
 import java.security.InvalidParameterException;
 import java.util.logging.Logger;
 
+/*@PatternInstance(
+ 	patternName="Adapter",
+ 	participants="GcsAdapter")
+ */
 /**
  * Adapter for the Google Cloud Storage.
  * Use {@link org.wahlzeit.model.persistence.GcsAdapter.Builder} to create an object.

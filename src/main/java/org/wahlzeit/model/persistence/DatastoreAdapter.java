@@ -34,6 +34,10 @@ import java.io.Serializable;
 import java.security.InvalidParameterException;
 import java.util.logging.Logger;
 
+/*@PatternInstance(
+ 	patternName="Adapter",
+ 	participants="DatastoreAdapter")
+ */
 /**
  * Adapter for the Google Datastore. Use default constructor to create an instance.
  * 

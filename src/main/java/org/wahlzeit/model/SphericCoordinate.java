@@ -7,26 +7,30 @@ package org.wahlzeit.model;
 
 import java.util.HashMap;
 
+/*@PatternInstance(
+		patternName="Value Object",
+		participants={"ValueObject"}
+)*/
 public class SphericCoordinate extends AbstractCoordinate{
 	/*
 	 * Attributes
 	 */
-	private double latitude;
-	private double longitude;
-	private double radius;
+	private final double latitude;
+	private final double longitude;
+	private final double radius;
 	public	static final int EARTH_RAD_IN_KM=6371;
-	private static final HashMap<SphericCoordinate, SphericCoordinate> Coordinates=new HashMap<SphericCoordinate, SphericCoordinate>();
+	private static HashMap<SphericCoordinate, SphericCoordinate> Coordinates=new HashMap<SphericCoordinate, SphericCoordinate>();
 	/*
 	 * Constructors
 	 */
-	public SphericCoordinate(double latitude, double longitude){
+	private SphericCoordinate(double latitude, double longitude){
 		this.latitude=latitude;
 		this.longitude=longitude;
 		this.radius=EARTH_RAD_IN_KM;
 		assertClassInvariants();		
 	}
 	
-	public SphericCoordinate(double latitude, double longitude, double radius){
+	private SphericCoordinate(double latitude, double longitude, double radius){
 		this.latitude=latitude;
 		this.longitude=longitude;
 		this.radius=radius;
@@ -72,7 +76,8 @@ public class SphericCoordinate extends AbstractCoordinate{
 		double x=getRadius()*Math.sin(Math.toRadians(getLatitude()))*Math.cos(Math.toRadians(getLongitude()));
 		double y=getRadius()*Math.sin(Math.toRadians(getLatitude()))*Math.sin(Math.toRadians(getLongitude()));
 		double z=getRadius()*Math.sin(Math.toRadians(getLatitude()));
-		CartesianCoordinate c=new CartesianCoordinate(x,y,z);
+		CartesianCoordinate c = null;
+		c=c.createCartCoord(x,y,z);
 		
 		assertClassInvariants();
 		return c;

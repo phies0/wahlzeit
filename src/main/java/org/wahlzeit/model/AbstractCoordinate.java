@@ -2,6 +2,10 @@ package org.wahlzeit.model;
 /*
  * 
  */
+/*@PatternInstance(
+	patternName="Template Methode",
+	participants={"AbstractCoordinate","CartesianCoordinate","SphericCoordinate"}
+)*/
 public abstract class AbstractCoordinate implements Coordinate {
 	private static final double ALPHA = 0.000000001;
 	/*

@@ -7,19 +7,23 @@ package org.wahlzeit.model;
 
 import java.util.HashMap;
 
+/*@PatternInstance(
+		patternName="Value Object",
+		participants={"ValueObject"}
+)*/
 public class CartesianCoordinate extends AbstractCoordinate{
 	//private static final CartesianCoordinate CartesianCoordinate = null;
 	/*
 	 * Attributes
 	 */
-	private double x;
-	private double y;
-	private double z;
-	private static final HashMap<CartesianCoordinate, CartesianCoordinate> Coordinates=new HashMap<CartesianCoordinate, CartesianCoordinate>();
+	private final double x;
+	private final double y;
+	private final double z;
+	private static HashMap<CartesianCoordinate, CartesianCoordinate> Coordinates=new HashMap<CartesianCoordinate, CartesianCoordinate>();
 	/*
 	 * Constructor
 	 */
-	public CartesianCoordinate(double x, double y, double z){
+	private CartesianCoordinate(double x, double y, double z){
 		
 		this.x=x;
 		this.y=y;

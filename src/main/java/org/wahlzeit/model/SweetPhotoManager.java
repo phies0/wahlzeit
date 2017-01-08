@@ -7,12 +7,12 @@ public class SweetPhotoManager extends PhotoManager{
 	/**
 	 *
 	 */
-	protected final static SweetPhotoManager instance = new SweetPhotoManager();
+	public final static SweetPhotoManager instance = new SweetPhotoManager();
 	/**
 	 *
 	 */
-	protected SweetPhotoManager(){
-		
+	public SweetPhotoManager(){
+		super();
 	}
 	/**
 	 *

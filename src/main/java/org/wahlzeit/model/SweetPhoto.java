@@ -1,5 +1,11 @@
 package org.wahlzeit.model;
 
+/*@PatternInstance(
+		patternName="Abstract Factory",
+		participants={"AbstractProduct",
+				"ConcreteProduct"
+		}
+)*/
 public class SweetPhoto extends Photo{
 	/*
 	 *Attributes
