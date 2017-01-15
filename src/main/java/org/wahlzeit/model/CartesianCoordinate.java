@@ -23,7 +23,7 @@ public class CartesianCoordinate extends AbstractCoordinate{
 	/*
 	 * Constructor
 	 */
-	private CartesianCoordinate(double x, double y, double z){
+	CartesianCoordinate(double x, double y, double z){
 		
 		this.x=x;
 		this.y=y;

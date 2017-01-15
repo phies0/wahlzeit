@@ -30,7 +30,7 @@ public class SphericCoordinate extends AbstractCoordinate{
 		assertClassInvariants();		
 	}
 	
-	private SphericCoordinate(double latitude, double longitude, double radius){
+	SphericCoordinate(double latitude, double longitude, double radius){
 		this.latitude=latitude;
 		this.longitude=longitude;
 		this.radius=radius;
