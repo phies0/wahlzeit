@@ -340,6 +340,7 @@ public class PhotoManager extends ObjectManager {
 	 *
 	 */
 	public Photo createPhoto(String filename, Image uploadedImage) throws Exception {
+		//part one of the creation of a new Photo-Object
 		PhotoId id = PhotoId.getNextId();
 		Photo result = PhotoUtil.createPhoto(filename, id, uploadedImage);
 		addPhoto(result);

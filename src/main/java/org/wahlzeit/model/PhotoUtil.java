@@ -40,6 +40,7 @@ public class PhotoUtil {
 	 * @methodtype creation
 	 */
 	public static Photo createPhoto(String filename, PhotoId id, Image uploadedImage) throws Exception {
+		//part 2 of the creation of a new SweetPhoto
 		Photo result = PhotoFactory.getInstance().createPhoto(id);
 		result.setEnding(filename.substring(filename.lastIndexOf(".") + 1));
 
@@ -57,7 +58,6 @@ public class PhotoUtil {
 	 */
 	public static void createImageFiles(Image source, Photo photo) throws Exception {
 		assertIsValidImage(source);
-
 		int sourceWidth = source.getWidth();
 		int sourceHeight = source.getHeight();
 		assertHasValidSize(sourceWidth, sourceHeight);

@@ -6,6 +6,15 @@ package org.wahlzeit.model;
 				"ConcreteProduct"
 		}
 )*/
+/*
+ * Creation of SweetPhotoObject:
+1. Delegation (Who gets to create the object? -> the SweetPhotoFactory): seperate-object
+2. Selection (How is the concrete class selected? -> always by using the SweetPhotoFactory): on-the-spot
+3. Configuration (How is a class mapping configured? -> SweetPhotoFactory -> SweetPhoto): in-code
+4. Instantiation (How is the concrete class instantiated? -> no configuartion, using constructor): in-code
+5. Initialization (How is the new object initialized? -> SweetPhoto(PhotoId myId) or SweetPhoto(PhotoId myId,String name, String brand, String type) : by-fixed-signature
+6. Building (How is the object structure built? -> you need Sweet and SweetType) : by Building
+ */
 public class SweetPhoto extends Photo{
 	/*
 	 *Attributes

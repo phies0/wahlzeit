@@ -22,17 +22,12 @@ public class SweetManager extends ObjectManager{
 	public SweetManager getManager(){
 		return this.instance;
 	}
-	public Map<Sweet,Sweet> getSweets(){
-		return this.sweets;
-	}
-	public Map<SweetType,SweetType> getSweettypes(){
-		return this.sweettypes;
-	}
 	/*
 	 * Methods
 	 */
 	public Sweet createSweet(SweetType type,String name, String brand){
 		Sweet sw=new Sweet(type,name,brand);
+		//part one of the creation of a new sweet object
 		sweets.put(sw, sw);
 		return sw;
 	}

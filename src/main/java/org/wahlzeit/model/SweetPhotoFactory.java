@@ -29,6 +29,7 @@ public class SweetPhotoFactory extends PhotoFactory{
 	 * @methodtype factory
 	 */
 	public SweetPhoto createPhoto() {
+		//part one of the creation of SweetPhoto
 		return new SweetPhoto();
 	}
 
